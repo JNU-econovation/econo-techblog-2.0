@@ -1,4 +1,4 @@
-package com.econo.tcono.response;
+package com.econo.tcono.global.common.response;
 
 import lombok.experimental.UtilityClass;
 import org.springframework.http.HttpStatus;
