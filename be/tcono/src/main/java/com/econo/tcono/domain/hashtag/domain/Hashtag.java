@@ -1,4 +1,6 @@
-package com.econo.tcono.domain.hashtag;
+package com.econo.tcono.domain.hashtag.domain;
+
+import lombok.Builder;
 
 import javax.persistence.*;
 
@@ -12,5 +14,10 @@ public class Hashtag {
     private String name;
 
     protected Hashtag() {
+    }
+
+    @Builder
+    public Hashtag(String name) {
+        this.name = name;
     }
 }

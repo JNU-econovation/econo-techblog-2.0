@@ -1,4 +1,4 @@
-package com.econo.tcono.domain.hashtag;
+package com.econo.tcono.domain.hashtag.domain;
 
 import javax.persistence.*;
 
