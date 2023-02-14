@@ -1,6 +1,6 @@
 package com.econo.tcono.domain.post.domain;
 
-import com.econo.tcono.domain.post.domain.exception.InvalidTitleException;
+import com.econo.tcono.domain.post.exception.InvalidTitleException;
 import com.econo.tcono.global.exception.ErrorCode;
 
 import javax.persistence.Column;

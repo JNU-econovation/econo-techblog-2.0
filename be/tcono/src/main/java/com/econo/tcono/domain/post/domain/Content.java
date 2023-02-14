@@ -1,6 +1,6 @@
 package com.econo.tcono.domain.post.domain;
 
-import com.econo.tcono.domain.post.domain.exception.InvalidContentException;
+import com.econo.tcono.domain.post.exception.InvalidContentException;
 import com.econo.tcono.global.exception.ErrorCode;
 
 import javax.persistence.Embeddable;
