@@ -1,5 +1,7 @@
 package com.econo.tcono.domain.post.domain;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 
 @Entity
@@ -27,4 +29,11 @@ public class Post {
 
     @Column(name = "post_like_count")
     private int likeCount = 0;
+
+    @Builder
+    public Post(PostType posttype, Title title, Content content) {
+        this.posttype = posttype;
+        this.title = title;
+        this.content = content;
+    }
 }

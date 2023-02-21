@@ -2,6 +2,7 @@ package com.econo.tcono.domain.post.domain;
 
 import com.econo.tcono.domain.post.exception.InvalidTitleException;
 import com.econo.tcono.global.exception.ErrorCode;
+import lombok.Builder;
 
 import javax.persistence.Column;
 
@@ -14,6 +15,7 @@ public class Title {
     protected Title() {
     }
 
+    @Builder
     public Title(String title) {
         validate(title);
         this.title = title;
