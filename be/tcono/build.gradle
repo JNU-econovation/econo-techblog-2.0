@@ -18,6 +18,16 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    set('springCloudVersion', "2021.0.5")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
@@ -26,6 +36,12 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    /* FeignClient 관련 */
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
+
+    /* redis 관련 */
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
 }
 
 tasks.named('test') {
