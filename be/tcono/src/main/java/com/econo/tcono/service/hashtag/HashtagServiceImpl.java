@@ -8,6 +8,7 @@ import com.econo.tcono.domain.hashtag.repository.PostHashtagRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,4 +47,21 @@ public class HashtagServiceImpl implements HashtagService {
         return hashtagRepository.findByName(name)
                 .orElseGet(() -> hashtagRepository.save(hashtagMapper.mapFrom(name)));
     }
+
+    public Hashtags getHashtagsByPostId(Long postId) {
+        List<Hashtag> hashtags = new ArrayList<>();
+        getHashtagIdByPostId(postId)
+                .forEach(hashtagId -> makeHashtags(hashtags, hashtagId));
+
+        return Hashtags.of(hashtags);
+    }
+
+    private boolean makeHashtags(List<Hashtag> hashtags, Long hashtagId) {
+        return hashtags.add(hashtagRepository.findHashtagById(hashtagId));
+    }
+
+    private List<Long> getHashtagIdByPostId(Long postId) {
+        return postHashtagRepository.findHashtagIdByPostId(postId);
+    }
+
 }
