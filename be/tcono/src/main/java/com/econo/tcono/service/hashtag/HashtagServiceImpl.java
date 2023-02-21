@@ -48,6 +48,7 @@ public class HashtagServiceImpl implements HashtagService {
                 .orElseGet(() -> hashtagRepository.save(hashtagMapper.mapFrom(name)));
     }
 
+    @Override
     public Hashtags getHashtagsByPostId(Long postId) {
         List<Hashtag> hashtags = new ArrayList<>();
         getHashtagIdByPostId(postId)
@@ -62,6 +63,12 @@ public class HashtagServiceImpl implements HashtagService {
 
     private List<Long> getHashtagIdByPostId(Long postId) {
         return postHashtagRepository.findHashtagIdByPostId(postId);
+    }
+
+    @Override
+    @Transactional
+    public void delteHashtagIdByPostId(Long postId) {
+        postHashtagRepository.deletePostHashtagByPostId(postId);
     }
 
 }

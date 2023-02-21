@@ -2,6 +2,7 @@ package com.econo.tcono.domain.hashtag.repository;
 
 import com.econo.tcono.domain.hashtag.domain.PostHashtag;
 import com.econo.tcono.global.config.QueryDslConfig;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,5 +61,15 @@ class PostHashtagRepositoryTest {
         List<Long> hashtagIdByPostId = postHashtagRepository.findHashtagIdByPostId(1L);
 
         assertThat(hashtagIdByPostId.size()).isEqualTo(2);
+    }
+
+    @Test
+    void deletePostHashtagByPostId() {
+        PostHashtag save1 = postHashtagRepository.save(postHashtag1);
+        PostHashtag save2 = postHashtagRepository.save(postHashtag2);
+
+        postHashtagRepository.deletePostHashtagByPostId(1L);
+
+        Assertions.assertThat(postHashtagRepository.findAll().size()).isEqualTo(0);
     }
 }
