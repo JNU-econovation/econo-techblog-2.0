@@ -17,6 +17,10 @@ public class Hashtag {
     protected Hashtag() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
     @Builder
     public Hashtag(String name) {
         this.name = name;
