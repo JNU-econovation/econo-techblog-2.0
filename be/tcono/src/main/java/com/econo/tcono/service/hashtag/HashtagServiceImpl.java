@@ -68,7 +68,7 @@ public class HashtagServiceImpl implements HashtagService {
     @Override
     @Transactional
     public void delteHashtagIdByPostId(Long postId) {
-        postHashtagRepository.deletePostHashtagByPostId(postId);
+        postHashtagRepository.deleteByPostId(postId);
     }
 
 }

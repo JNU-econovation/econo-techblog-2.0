@@ -68,7 +68,7 @@ class PostHashtagRepositoryTest {
         PostHashtag save1 = postHashtagRepository.save(postHashtag1);
         PostHashtag save2 = postHashtagRepository.save(postHashtag2);
 
-        postHashtagRepository.deletePostHashtagByPostId(1L);
+        postHashtagRepository.deleteByPostId(1L);
 
         Assertions.assertThat(postHashtagRepository.findAll().size()).isEqualTo(0);
     }

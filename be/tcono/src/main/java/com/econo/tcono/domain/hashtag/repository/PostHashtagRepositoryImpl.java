@@ -24,4 +24,11 @@ public class PostHashtagRepositoryImpl implements PostHashtagCustomRepository {
                 .where(postHashtag.postId.eq(postId))
                 .fetch();
     }
+
+    @Override
+    public void deleteByPostId(Long postId) {
+        jpaQueryFactory.delete(postHashtag)
+                .where(postHashtag.postId.eq(postId))
+                .execute();
+    }
 }
