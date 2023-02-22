@@ -36,6 +36,6 @@ public class LikeServiceImpl implements LikeService {
 
     @Override
     public void deleteByPostId(Long postId) {
-
+        likeRepository.deleteAllByPostId(postId);
     }
 }

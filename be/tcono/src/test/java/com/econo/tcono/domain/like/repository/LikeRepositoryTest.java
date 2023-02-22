@@ -62,4 +62,22 @@ class LikeRepositoryTest {
         boolean exists = likeRepository.existsByPostIdAndIdpId(1L, 2L);
         assertThat(exists).isEqualTo(false);
     }
+
+    @Test
+    void 글에_존재하는_좋아요_모두_삭제(){
+        Like like2 = Like.builder()
+                .postId(1L)
+                .idpId(3L)
+                .build();
+
+        Like like3 = Like.builder()
+                .postId(1L)
+                .idpId(4L)
+                .build();
+
+        likeRepository.save(like2);
+        likeRepository.save(like3);
+
+        likeRepository.deleteAllByPostId(1L);
+    }
 }
