@@ -77,7 +77,13 @@ class LikeRepositoryTest {
 
         likeRepository.save(like2);
         likeRepository.save(like3);
-
         likeRepository.deleteAllByPostId(1L);
+
+        boolean b2 = likeRepository.existsByPostIdAndIdpId(1L, 3L);
+        assertThat(b2).isEqualTo(false);
+
+        boolean b3 = likeRepository.existsByPostIdAndIdpId(1L, 4L);
+        assertThat(b3).isEqualTo(false);
+
     }
 }
