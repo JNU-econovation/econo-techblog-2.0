@@ -20,4 +20,11 @@ public class LikeRepositoryImpl implements LikeCustomRepository{
                         .and(like.idpId.eq(idpId)))
                 .execute();
     }
+
+    @Override
+    public void deleteAllByPostId(Long postId) {
+        jpaQueryFactory.delete(like)
+                .where(like.postId.eq(postId))
+                .execute();
+    }
 }
