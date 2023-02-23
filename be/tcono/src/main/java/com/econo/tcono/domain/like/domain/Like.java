@@ -1,4 +1,6 @@
-package com.econo.tcono.domain.like;
+package com.econo.tcono.domain.like.domain;
+
+import lombok.Builder;
 
 import javax.persistence.*;
 
@@ -15,4 +17,13 @@ public class Like {
 
     @Column(name = "idp_id")
     private Long idpId;
+
+    @Builder
+    public Like(Long postId, Long idpId) {
+        this.postId = postId;
+        this.idpId = idpId;
+    }
+
+    protected Like() {
+    }
 }
