@@ -19,14 +19,16 @@ public class LikeServiceImpl implements LikeService {
     }
 
     @Override
-    public void flipLike(Long postId, Long idpId) {
+    public boolean flipLike(Long postId, Long idpId) {
         boolean isExist = likeRepository.existsByPostIdAndIdpId(postId, idpId);
         if (isExist) {
             likeRepository.deleteByPostIdAndIdpId(postId, idpId);
             postRepository.decreaseLikeCount(postId);
+            return false;
         }
         addNewPostLike(postId, idpId);
         postRepository.increaseLikeCount(postId);
+        return true;
     }
 
     private void addNewPostLike(Long postId, Long idpId) {

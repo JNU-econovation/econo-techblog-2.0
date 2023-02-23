@@ -1,9 +1,11 @@
 package com.econo.tcono.domain.like.repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.springframework.stereotype.Service;
 
 import static com.econo.tcono.domain.like.domain.QLike.like;
 
+@Service
 public class LikeRepositoryImpl implements LikeCustomRepository{
     private final JPAQueryFactory jpaQueryFactory;
 
